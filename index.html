@@ -4,38 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>خدمات فورد المنزلية</title>
+    <title>خدمات سيارات فورد المنزلية</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            emailjs.init("YOUR_USER_ID");  // استبدل YOUR_USER_ID بمعرف المستخدم الخاص بك من EmailJS
+        })();
+    </script>
 </head>
 <body dir="rtl">
-    <!-- إضافة شعار فورد كخلفية متحركة -->
-    <img id="ford-logo" src="ford_logo.png" alt="شعار فورد">
+    <div class="container">
+        <header class="main-header">
+            <h1>خدمات سيارات فورد المنزلية</h1>
+        </header>
 
-    <!-- Header Section -->
-    <header class="main-header">
-        <div class="container">
-            <div class="logo">
-                <h1>خدمات فورد المنزلية</h1>
+        <section class="hero-section">
+            <div class="hero-content">
+                <h2>أفضل خدمات الصيانة لسيارات فورد في منزلك</h2>
+                <p>خدمات مريحة وسريعة للحفاظ على سيارتك في أفضل حال.</p>
+                <a href="services.html" class="btn">اطلب الآن</a>
+
+                <!-- Ford Logo Animation -->
+                <div class="ford-logo-container">
+                    <img src="ford_logo.svg" alt="Ford Logo" class="ford-logo">
+                </div>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">الرئيسية</a></li>
-                    <li><a href="services.html">الخدمات</a></li>
-                    <li><a href="contact.html">اتصل بنا</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+        </section>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-section">
-        <div class="hero-content">
-            <h2>خدمات سيارات فورد حيثما كنت!</h2>
-            <p>نحن نقدم خدمات صيانة واهتمام بسيارات فورد في منزلك.</p>
-            <a href="services.html" class="btn">اكتشف خدماتنا</a>
-        </div>
-    </section>
-
-    <script src="script.js"></script>
+        <script src="script.js"></script>
+    </div>
 </body>
 </html>
+

@@ -1,93 +1,96 @@
+/* إعدادات عامة */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Cairo', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #004080; /* خلفية زرقاء */
-    color: #ffffff; /* كتابة بيضاء */
+    background-color: #004085; /* خلفية زرقاء */
+    color: #ffffff; /* الكتابة باللون الأبيض */
     line-height: 1.6;
 }
 
 .container {
-    width: 80%;
+    width: 90%;
     margin: auto;
 }
 
 .main-header {
-    background: #002a50; /* خلفية زرقاء داكنة */
-    color: #ffffff; /* كتابة بيضاء */
-    padding: 10px 0;
+    text-align: center;
+    padding: 40px 0;
+    background-color: #003366;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
 }
 
-.main-header nav ul {
-    list-style: none;
-    padding: 0;
-}
-
-.main-header nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
-
-.main-header nav ul li a {
-    color: #ffffff; /* كتابة بيضاء */
-    text-decoration: none;
-}
-
+/* قسم البطل (Hero Section) */
 .hero-section {
-    background: #002a50; /* خلفية زرقاء داكنة */
-    color: #ffffff; /* كتابة بيضاء */
-    padding: 100px 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     text-align: center;
-}
-
-.hero-section .btn {
-    background: #28a745; /* لون أخضر */
-    color: #ffffff;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
-.services-section, .contact-section {
-    padding: 50px 0;
-    text-align: center;
-}
-
-.services .card {
-    display: inline-block;
-    margin: 20px;
+    background: radial-gradient(circle, rgba(0,40,100,1) 0%, rgba(0,20,50,1) 100%);
+    color: #fff;
     padding: 20px;
-    background-color: #002a50; /* خلفية زرقاء داكنة */
-    color: #ffffff; /* كتابة بيضاء */
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
-.services .card:hover {
-    transform: scale(1.05);
-    opacity: 0.9;
+.hero-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
 }
 
-.contact-form .form-group input,
-.contact-form .form-group textarea {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #004080; /* خلفية زرقاء */
-    color: #ffffff; /* كتابة بيضاء */
+.hero-section p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
 }
 
-.contact-form .btn {
-    background: #28a745; /* لون أخضر */
-    color: #ffffff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
+.btn {
+    background-color: #28a745; /* زر أخضر */
+    color: white;
+    padding: 15px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: background 0.3s, transform 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.contact-form .btn:hover {
-    background: #218838; /* لون أخضر أغمق عند التمرير */
+.btn:hover {
+    background-color: #218838;
+    transform: scale(1.05); /* تأثير التحويم */
+}
+
+/* شعار فورد المتحرك */
+.ford-logo-container {
+    margin-top: 50px;
+    text-align: center;
+    position: relative;
+}
+
+.ford-logo {
+    width: 200px;
+    animation: spin 5s linear infinite;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.7));
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* تأثيرات ثلاثية الأبعاد (Neumorphism) للأزرار والصناديق */
+.btn, .hero-section, .main-header {
+    box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.3), -8px -8px 20px rgba(255, 255, 255, 0.1);
+}
+
+/* تحسينات إضافية */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #003366;
+    color: #fff;
+    margin-top: 50px;
+    border-radius: 10px;
 }

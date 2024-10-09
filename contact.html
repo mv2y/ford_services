@@ -8,12 +8,11 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body dir="rtl">
-
     <!-- Header Section -->
     <header class="main-header">
         <div class="container">
             <div class="logo">
-                <h1>خدمات فورد المنزلية</h1>
+                <h1>خدمات سيارات فورد المنزلية</h1>
             </div>
             <nav>
                 <ul>
@@ -25,11 +24,11 @@
         </div>
     </header>
 
-    <!-- Contact Us Section -->
-    <section id="contact" class="contact-section">
+    <!-- Contact Section -->
+    <section class="contact-section">
         <div class="container">
             <h2>اتصل بنا</h2>
-            <form class="contact-form" action="send_email.php" method="POST">
+            <form id="contact-form" class="contact-form">
                 <div class="form-group">
                     <label for="name">الاسم</label>
                     <input type="text" id="name" name="name" required>
@@ -38,19 +37,4 @@
                     <label for="email">البريد الإلكتروني</label>
                     <input type="email" id="email" name="email" required>
                 </div>
-                <div class="form-group">
-                    <label for="location">الموقع</label>
-                    <input type="text" id="location" name="location" placeholder="أدخل موقعك" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">الرسالة</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-                </div>
-                <button type="submit" class="btn">أرسل الرسالة</button>
-            </form>
-        </div>
-    </section>
-
-    <script src="script.js"></script>
-</body>
-</html>
+               
