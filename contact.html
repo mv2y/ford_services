@@ -3,53 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>اتصل بنا</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- إضافة Bootstrap لتحسين التصميم -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body dir="rtl">
-    <!-- Header Section -->
+<body>
     <header class="main-header">
         <div class="container">
-            <div class="logo">
-                <h1>خدمات سيارات فورد المنزلية</h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">الرئيسية</a></li>
-                    <li><a href="services.html">الخدمات</a></li>
-                    <li><a href="contact.html">اتصل بنا</a></li>
-                </ul>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="index.html"><img src="images/ford_logo.png" alt="فورد" width="50"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">الرئيسية</a></li>
+                        <li class="nav-item"><a class="nav-link" href="services.html">خدماتنا</a></li>
+                        <li class="nav-item"><a class="nav-link" href="cart.html">السلة</a></li>
+                        <li class="nav-item"><a class="nav-link" href="chat.html">الدردشة</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contact.html">اتصل بنا</a></li>
+                        <li class="nav-item"><a class="nav-link" href="login.html">تسجيل الدخول</a></li>
+                        <li class="nav-item"><a class="nav-link" href="register.html">تسجيل جديد</a></li>
+                    </ul>
+                </div>
             </nav>
         </div>
     </header>
 
-    <!-- Contact Section -->
-    <section class="contact-section">
-        <div class="container">
-            <h2>اتصل بنا</h2>
-            <form id="contact-form" class="contact-form">
-                <div class="form-group">
-                    <label for="name">الاسم</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="email">البريد الإلكتروني</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <div class="form-group">
-                    <label for="location">الموقع</label>
-                    <input type="text" id="location" name="location" required>
-                </div>
-                <div class="form-group">
-                    <label for="message">الرسالة</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-                </div>
-                <button type="submit" class="btn">أرسل الرسالة</button>
-            </form>
-        </div>
+    <section class="contact-section container">
+        <h2 class="text-center mb-4">تواصل معنا</h2>
+        <form class="contact-form" id="contactForm" action="checkout.php" method="POST">
+            <div class="mb-3">
+                <label for="name" class="form-label">الاسم الكامل:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="phone" class="form-label">رقم الهاتف:</label>
+                <input type="text" class="form-control" id="phone" name="phone" required>
+            </div>
+            <div class="mb-3">
+                <label for="service" class="form-label">الخدمة المطلوبة:</label>
+                <select class="form-select" id="service" name="service" required>
+                    <option value="">اختر الخدمة</option>
+                    <option value="فحص وصيانة">فحص وصيانة</option>
+                    <option value="تغيير الزيت">تغيير الزيت</option>
+                    <option value="إصلاح الفرامل">إصلاح الفرامل</option>
+                    <!-- أضف المزيد من الخدمات حسب الحاجة -->
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="address" class="form-label">العنوان:</label>
+                <textarea class="form-control" id="address" name="address" rows="3" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-success w-100">إرسال الطلب</button>
+        </form>
     </section>
 
-    <script src="script.js"></script>
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2024 خدمات فورد المنزلية. جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <!-- إضافة Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
