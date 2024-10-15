@@ -49,7 +49,59 @@
 
     <!-- إضافة Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- إضافة JavaScript للمحادثة -->
-    <script src="js/chat.js"></script>
+
+    <!-- إعداد Firebase -->
+    <script>
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyD8-zbezVA3BD9N_OdkEnM83u61p8Ba2M8",
+  authDomain: "ford-servies.firebaseapp.com",
+  databaseURL: "https://ford-servies-default-rtdb.firebaseio.com",
+  projectId: "ford-servies",
+  storageBucket: "ford-servies.appspot.com",
+  messagingSenderId: "757262710894",
+  appId: "1:757262710894:web:331885b21a90d13d5a4e7f"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // Reference to the Realtime Database
+        const database = firebase.database();
+
+        // استهداف عناصر HTML
+        const chatBox = document.getElementById('chatBox');
+        const chatForm = document.getElementById('chatForm');
+        const messageInput = document.getElementById('message');
+
+        // إرسال رسالة إلى Firebase
+        chatForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // منع إعادة تحميل الصفحة
+
+            const message = messageInput.value;
+
+            if (message.trim()) {
+                // إضافة الرسالة إلى قاعدة بيانات Firebase
+                firebase.database().ref('messages').push({
+                    text: message,
+                    timestamp: new Date().toLocaleString()
+                });
+
+                // إعادة تعيين حقل الإدخال
+                messageInput.value = '';
+            }
+        });
+
+        // استماع إلى الرسائل الجديدة وإضافتها إلى واجهة المستخدم
+        firebase.database().ref('messages').on('child_added', function(snapshot) {
+            const messageData = snapshot.val();
+            const messageElement = document.createElement('div');
+            messageElement.textContent = `${messageData.timestamp}: ${messageData.text}`;
+            chatBox.appendChild(messageElement);
+
+            // تمرير المحادثة لأسفل
+            chatBox.scrollTop = chatBox.scrollHeight;
+        });
+    </script>
 </body>
 </html>
