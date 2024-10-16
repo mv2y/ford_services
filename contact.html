@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="css/styles.css">
     <!-- إضافة Bootstrap لتحسين التصميم -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- إضافة Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-database.js"></script>
 </head>
 <body>
     <header class="main-header">
@@ -33,7 +36,7 @@
 
     <section class="contact-section container">
         <h2 class="text-center mb-4">تواصل معنا</h2>
-        <form class="contact-form" id="contactForm" action="checkout.php" method="POST">
+        <form class="contact-form" id="contactForm">
             <div class="mb-3">
                 <label for="name" class="form-label">الاسم الكامل:</label>
                 <input type="text" class="form-control" id="name" name="name" required>
@@ -66,5 +69,60 @@
 
     <!-- إضافة Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- إضافة JavaScript لحفظ الطلبات في Firebase -->
+    <script>
+        // تكوين Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyD8-zbezVA3BD9N_OdkEnM83u61p8Ba2M8",
+  authDomain: "ford-servies.firebaseapp.com",
+  databaseURL: "https://ford-servies-default-rtdb.firebaseio.com",
+  projectId: "ford-servies",
+  storageBucket: "ford-servies.appspot.com",
+  messagingSenderId: "757262710894",
+  appId: "1:757262710894:web:331885b21a90d13d5a4e7f"     
+        };
+
+        // تهيئة Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        // مرجع قاعدة البيانات
+        const database = firebase.database();
+
+        // التعامل مع إرسال النموذج
+        document.getElementById('contactForm').addEventListener('submit', submitOrder);
+
+        function submitOrder(e) {
+            e.preventDefault();
+
+            // الحصول على القيم من النموذج
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const address = document.getElementById('address').value;
+
+            // حفظ بيانات الطلب في Firebase
+            saveOrderToDatabase(name, phone, service, address);
+
+            // مسح النموذج بعد الإرسال
+            document.getElementById('contactForm').reset();
+        }
+
+        // دالة لحفظ بيانات الطلب في قاعدة بيانات Firebase
+        function saveOrderToDatabase(name, phone, service, address) {
+            const newOrderRef = database.ref('orders').push();
+            newOrderRef.set({
+                name: name,
+                phone: phone,
+                service: service,
+                address: address,
+                timestamp: new Date().toISOString()
+            }).then(() => {
+                alert('تم إرسال الطلب بنجاح!');
+            }).catch((error) => {
+                console.error('حدث خطأ أثناء إرسال الطلب:', error);
+            });
+        }
+    </script>
 </body>
 </html>
